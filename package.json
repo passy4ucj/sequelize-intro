@@ -1,0 +1,20 @@
+{
+  "name": "sequelize-intro",
+  "version": "1.0.0",
+  "description": "An Intro to Postgres-Sequelize using NodeJs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Pascal Ojinnaka",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
