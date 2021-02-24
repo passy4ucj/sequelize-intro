@@ -14,6 +14,21 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/post/:postId', async (req, res) => {
+    const {postId} = req.params
+
+    try {
+        const post = await Post.findOne({where: {id: postId}, include: "creator_of_post"})
+        res.json({
+            post
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            error: 'Server error'
+        })
+    }
+})
 
 app.post('/post/create', async (req, res) => {
     const { creator, title, body } = req.body
