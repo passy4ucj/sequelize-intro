@@ -11,6 +11,9 @@ npm install
 ## Run App
 
 ```
+# Initialize Sequelize
+npx sequelize-cli init
+
 # Run in dev mode
 npm run server
 
