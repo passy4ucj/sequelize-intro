@@ -1,5 +1,5 @@
 const express = require('express')
-const { User } = require('./models')
+const { User, Post } = require('./models')
 
 // Creating an express app
 const app = express() 
@@ -14,6 +14,20 @@ app.get('/', (req, res) => {
     })
 })
 
+
+app.post('/post/create', async (req, res) => {
+    const { creator, title, body } = req.body
+    try {
+        const newPost = await Post.create(req.body)
+        res.json({
+            message: 'Post Created'
+        })
+    } catch (error) {
+        res.json({
+            error: 'Server error'
+        })
+    }
+})
 
 app.post('/user/create', async(req, res) => {
     const { username } = req.body
