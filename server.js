@@ -14,6 +14,21 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/user/:userId', async (req, res) => {
+    const {userId} = req.params
+    try {
+        const user = await User.findOne({where: {id: userId}, include: 'user_created_posts'})
+        res.json({
+            user
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            error: 'server error'
+        })
+    }
+})
+
 app.get('/post/:postId', async (req, res) => {
     const {postId} = req.params
 
